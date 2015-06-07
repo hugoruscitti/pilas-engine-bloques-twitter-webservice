@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/hugoruscitti/pilas-engine-bloques-twitter-webservice",
   "dependencies": {
+    "body-parser": "^1.12.4",
+    "express": "^4.12.4",
     "node-twitter": "^0.5.2"
   }
 }
