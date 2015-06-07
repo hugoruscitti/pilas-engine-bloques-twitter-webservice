@@ -1,0 +1,22 @@
+{
+  "name": "pilas-engine-bloques-twitter-webservice",
+  "version": "1.0.0",
+  "description": "Un servicio web para publicar screenshots de pilas-bloques en twitter.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hugoruscitti/pilas-engine-bloques-twitter-webservice.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hugoruscitti/pilas-engine-bloques-twitter-webservice/issues"
+  },
+  "homepage": "https://github.com/hugoruscitti/pilas-engine-bloques-twitter-webservice",
+  "dependencies": {
+    "node-twitter": "^0.5.2"
+  }
+}
