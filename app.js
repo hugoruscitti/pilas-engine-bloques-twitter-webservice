@@ -37,7 +37,10 @@ function sendMessage(message, media) {
 }
 
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json({limit: '5mb'}));
+app.use(bodyParser.urlencoded({limit: '5mb'}));
+
+app.use(bodyParser({limit: '50mb'}));
 
 app.get('/',function(req,res){
   res.json({info: "webservice de pilas-engine-bloques en funcionamiento."});
@@ -45,13 +48,23 @@ app.get('/',function(req,res){
 
 app.post('/sendMessage', function(req, res) {
   var message = req.body.message;
+  console.log(req.body);
   var media = req.body.media;
+  var filename = "_tmp_imagen" + 123123 + ".png";
 
-  console.log("message: " + message + "    media: " + media);
 
-  sendMessage(message, media);
+  var base64Data = media.replace(/^data:image\/png;base64,/, "");
 
-  res.json({status: "ok", message: message, media:media});
+  require("fs").writeFile(filename, base64Data, 'base64', function(err) {
+    if (err) {
+      console.log(err);
+      res.json({status: "error", message: err});
+    } else {
+      sendMessage(message, filename);
+      res.json({status: "ok", message: message, media:media});
+    }
+  });
+
 });
 
 app.listen(3000, function(){
