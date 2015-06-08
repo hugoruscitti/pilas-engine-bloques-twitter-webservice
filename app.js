@@ -53,7 +53,8 @@ app.get('/',function(req,res){
 app.post('/sendMessage', function(req, res) {
   var message = req.body.message;
   var media = req.body.media;
-  var filename = "_tmp_imagen" + 123123 + ".png";
+  var id = parseInt(Math.random() * 10000, 10);
+  var filename = "_tmp_imagen" + id + ".png";
 
   var base64Data = media.replace(/^data:image\/png;base64,/, "");
 
